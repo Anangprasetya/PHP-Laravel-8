@@ -11,9 +11,9 @@
 
 <body>
     <h1>Halaman About</h1>
-    <h3><?= $name; ?></h3>
-    <p><?php echo $email; ?></p>
-    <img src="img/<?php echo $image; ?>" alt="Anang" width="200">
+    <h3>{{ $name }} </h3>
+    <p>{{ $email }} </p>
+    <img src="img/{{$image}} " alt="Anang" width="200">
 </body>
 
 </html>
