@@ -18,7 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        "name" => "Anang Nur Prasetya",
+        "email" => "anangnr.pras@gmail.com",
+        "image" => "gambar.jpg"
+    ]);
 });
 
 Route::get('/blog', function () {
