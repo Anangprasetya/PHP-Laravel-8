@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
-<h1>Halaman Posts</h1>
-
-
+@foreach($posts as $x)
+<article class="mb-5">
+    <h2>{{ $x["title"] }} </h2>
+    <h5>By: {{ $x["author"] }} </h5>
+    <p>{{ $x["body"] }} </p>
+</article>
+@endforeach
 @endSection
