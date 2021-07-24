@@ -32,11 +32,4 @@ Route::get('/about', function () {
 
 
 Route::get('/posts', [PostController::class, 'index']);
-
-
-Route::get('posts/{slug}', function ($slug) {
-    return view('post', [
-        "title" => "Single Post",
-        "post" => Post::find($slug),
-    ]);
-});
+Route::get('posts/{slug}', [PostController::class, 'show']);
