@@ -29,18 +29,18 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('12345')
         // ]);
 
-        User::factory(3)->create();
-        Category::create([
-            'name' => 'Machine Learning',
-            'slug' => 'machine-learning'
-        ]);
+        // User::factory(3)->create();
+        // Category::create([
+        //     'name' => 'Machine Learning',
+        //     'slug' => 'machine-learning'
+        // ]);
 
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal'
+        // ]);
 
-        Post::factory(20)->create();
+        Post::factory(4)->create();
 
         // Post::create([
         //     'title' => 'Pengenalan Machine Learning',
