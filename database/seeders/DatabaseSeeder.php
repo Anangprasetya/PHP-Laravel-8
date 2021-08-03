@@ -40,6 +40,11 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
+        Category::create([
+            'name' => 'Struktur Data',
+            'slug' => 'struktur-data'
+        ]);
+
         Post::factory(20)->create();
 
         // Post::create([
