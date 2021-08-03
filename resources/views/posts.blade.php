@@ -6,7 +6,7 @@
 
 @if($posts->count())
 <div class="card mb-3">
-    <img src="https://source.unsplash.com/1200x400/?{{$posts[0]->category->name}}" class="card-img-top" alt="...">
+    <img src="https://source.unsplash.com/1200x400?{{$posts[0]->category->name}}" class="card-img-top" alt="{{$posts[0]->category->name}}">
     <div class="card-body text-center">
         <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
 
@@ -22,14 +22,28 @@
 <p class="text-center fs-4">No Post found.</p>
 @endif
 
-@foreach($posts as $x)
-<article class="mb-5 border-bottom pb-3">
-    <h2><a href="/posts/{{ $x->slug }}" class="text-decoration-none">{{ $x->title }}</a></h2>
-    <p>By. <a href="/authors/{{$x->author->username}}" class="text-decoration-none">{{ $x->author->name }}</a> in <a href="/categories/{{$x->category->slug}}" class="text-decoration-none"> {{ $x->category->name }} </a> </p>
-    <!-- <h5>By: {{ $x["author"] }} </h5> -->
-    <p>{{ $x->excerpt }} </p>
 
-    <a href="/posts/{{ $x->slug }}" class="text-decoration-none">Read more...</a>
-</article>
-@endforeach
+
+<div class="container">
+    <div class="row">
+        @foreach($posts->skip(1) as $x)
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="position-absolute bg-dark px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7);"><a href="/categories/{{$x->category->slug}}" class="text-white text-decoration-none">{{ $x->category->name }}</a>
+                </div>
+
+                <img src="https://source.unsplash.com/500x400?{{$x->category->name}}" class="card-img-top" alt="{{$x->category->name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $x->title }}</h5>
+                    <p> <small class=" text-muted">By. <a href="/authors/{{$x->author->username}}" class="text-decoration-none">{{ $x->author->name }}</a> {{ $x->created_at->diffForHumans() }} </small> </p>
+
+
+                    <p class="card-text">{{ $x->excerpt }}</p>
+                    <a href="/posts/{{ $x->slug }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 @endSection
