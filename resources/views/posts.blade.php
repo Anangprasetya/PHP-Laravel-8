@@ -65,4 +65,8 @@
 <p class="text-center fs-4">No Post found.</p>
 @endif
 
+<div class="d-flex justify-content-center">
+    {{ $posts->links() }}
+</div>
+
 @endSection
